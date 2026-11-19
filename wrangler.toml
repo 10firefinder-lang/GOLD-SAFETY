@@ -1,0 +1,18 @@
+name = "gold-safety"
+main = "worker.mjs"
+compatibility_date = "2026-03-01"
+workers_dev = true
+preview_urls = false
+
+[assets]
+directory = "./site"
+binding = "ASSETS"
+run_worker_first = ["/api", "/api/*"]
+
+[[durable_objects.bindings]]
+name = "WORKSPACE"
+class_name = "GoldWorkspace"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["GoldWorkspace"]
